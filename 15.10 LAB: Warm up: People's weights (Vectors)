@@ -1,0 +1,52 @@
+#include <iostream>
+#include <iomanip>    
+#include <vector>
+using namespace std;
+
+int main() {
+   const int NEW_WEIGHT = 5;
+   vector <float> inputWeights;
+   int i = 0;
+   float sumWeight = 0.0;
+   float AverageWeight = 1.0;
+   float maxWeight = 0.0;
+   float temp = 0.0;
+
+   for (i = 0; i < NEW_WEIGHT; i++){
+      cout << "Enter weight "<< i+1 << ":"<< endl;
+      cin>> temp;
+      inputWeights.push_back (temp);
+
+   }
+
+
+   cout << "You entered: ";
+
+   for (i =0; i < NEW_WEIGHT; i++){
+      cout << fixed << setprecision(2);
+      cout << inputWeights.at(i)<< " ";
+   }
+   cout << endl << endl;
+
+   for (i =0; i < NEW_WEIGHT; i++){
+      sumWeight += inputWeights.at(i); 
+      }
+      
+      cout <<"Total weight: "<< sumWeight<< endl;
+
+       AverageWeight = sumWeight / inputWeights.size();
+
+   cout << "Average weight: "<< AverageWeight<< endl;
+
+   maxWeight = inputWeights.at(0);
+   
+   for (i =0; i < NEW_WEIGHT; i++){
+      if (inputWeights.at(i) > maxWeight){
+         maxWeight = inputWeights.at(i);
+      }
+    }
+
+   cout<< "Max weight: "<< maxWeight << endl;
+
+   return 0;
+}
