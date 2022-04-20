@@ -1,0 +1,57 @@
+#include <iostream>
+#include <vector> 
+#include <string>
+#include <cctype>
+using namespace std;
+
+int GetWordFrequency(vector<string> wordsList, string currWord);
+void displayValues(const vector<string>& myWords);
+void getWordsFromUser(vector<string>& myWords);
+
+int main() 
+{
+   vector<string> myWords;
+   getWordsFromUser(myWords);
+   displayValues(myWords);
+
+   return 0;
+}
+
+
+void getWordsFromUser(vector<string>& myWords)
+{
+   int countOfWords;
+   cin >> countOfWords;
+   
+   for (int i = 0; i < countOfWords; ++i)
+   {
+      string newWord;
+      cin >> newWord;
+      myWords.push_back(newWord);
+   }
+}
+
+void displayValues(const vector<string>& myWords)
+{
+   for (string word : myWords)
+   {
+      cout << word << " - ";
+      cout << GetWordFrequency(myWords, word);
+      cout << endl;
+   }
+}
+
+int GetWordFrequency(vector<string> wordsList, string currWord)
+{
+   int result = 0;
+   
+   for (string word : wordsList)
+   {
+      if ((currWord) == (word))
+      {
+         result++;
+      }
+   }
+   
+   return result;
+}
